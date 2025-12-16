@@ -1,0 +1,199 @@
+{
+  "timestamp": "2025-12-15T19:18:56.838678",
+  "config": {
+    "train_samples": 1024,
+    "eval_samples": {
+      "gsm8k": 200,
+      "aqua": 200
+    },
+    "model": "Qwen/Qwen2.5-0.5B-Instruct",
+    "prm": "thinkprm"
+  },
+  "experiments": [
+    {
+      "experiment": "exp1_multi_layer_last_token",
+      "description": "Multi-layer hidden states (last token only)",
+      "feature_config": {
+        "multi_layer_last_token": true,
+        "multi_layer_mean_pooled": false,
+        "attention": false,
+        "logits": false
+      },
+      "feature_dim": 4480,
+      "train_stats": {
+        "n_samples": 2757,
+        "n_steps": 2757,
+        "label_distribution": {
+          "incorrect": 1259,
+          "correct": 1498
+        }
+      },
+      "probe_results": {
+        "train_auc": 1.0,
+        "train_accuracy": 1.0,
+        "val_auc": 0.683128306878307,
+        "val_accuracy": 0.6394927536231884
+      },
+      "eval_results": {
+        "GSM8K": {
+          "auc": 0.6469054019457245,
+          "accuracy": 0.6,
+          "n_samples": 500
+        },
+        "AQuA": {
+          "auc": 0.5983963157128295,
+          "accuracy": 0.6426592797783933,
+          "n_samples": 722
+        }
+      }
+    },
+    {
+      "experiment": "exp2_multi_layer_mean_pooled",
+      "description": "Multi-layer hidden states (mean pooled)",
+      "feature_config": {
+        "multi_layer_last_token": false,
+        "multi_layer_mean_pooled": true,
+        "attention": false,
+        "logits": false
+      },
+      "feature_dim": 3584,
+      "train_stats": {
+        "n_samples": 2757,
+        "n_steps": 2757,
+        "label_distribution": {
+          "incorrect": 1259,
+          "correct": 1498
+        }
+      },
+      "probe_results": {
+        "train_auc": 0.9998499651023801,
+        "train_accuracy": 0.9959183673469387,
+        "val_auc": 0.7454497354497355,
+        "val_accuracy": 0.6865942028985508
+      },
+      "eval_results": {
+        "GSM8K": {
+          "auc": 0.6509856630824372,
+          "accuracy": 0.608,
+          "n_samples": 500
+        },
+        "AQuA": {
+          "auc": 0.6336100189311199,
+          "accuracy": 0.5831024930747922,
+          "n_samples": 722
+        }
+      }
+    },
+    {
+      "experiment": "exp3_attention_only",
+      "description": "Attention pattern features only",
+      "feature_config": {
+        "multi_layer_last_token": false,
+        "multi_layer_mean_pooled": false,
+        "attention": true,
+        "logits": false
+      },
+      "feature_dim": 4,
+      "train_stats": {
+        "n_samples": 2757,
+        "n_steps": 2757,
+        "label_distribution": {
+          "incorrect": 1259,
+          "correct": 1498
+        }
+      },
+      "probe_results": {
+        "train_auc": 0.5,
+        "train_accuracy": 0.5433106575963719,
+        "val_auc": 0.5,
+        "val_accuracy": 0.5434782608695652
+      },
+      "eval_results": {
+        "GSM8K": {
+          "auc": 0.5,
+          "accuracy": 0.496,
+          "n_samples": 500
+        },
+        "AQuA": {
+          "auc": 0.5,
+          "accuracy": 0.30193905817174516,
+          "n_samples": 722
+        }
+      }
+    },
+    {
+      "experiment": "exp4_logits_only",
+      "description": "Token logits/probs features only",
+      "feature_config": {
+        "multi_layer_last_token": false,
+        "multi_layer_mean_pooled": false,
+        "attention": false,
+        "logits": true
+      },
+      "feature_dim": 3,
+      "train_stats": {
+        "n_samples": 2757,
+        "n_steps": 2757,
+        "label_distribution": {
+          "incorrect": 1259,
+          "correct": 1498
+        }
+      },
+      "probe_results": {
+        "train_auc": 0.5504233305094721,
+        "train_accuracy": 0.5582766439909297,
+        "val_auc": 0.5343253968253967,
+        "val_accuracy": 0.5489130434782609
+      },
+      "eval_results": {
+        "GSM8K": {
+          "auc": 0.5639720942140296,
+          "accuracy": 0.528,
+          "n_samples": 500
+        },
+        "AQuA": {
+          "auc": 0.4663153487694772,
+          "accuracy": 0.4473684210526316,
+          "n_samples": 722
+        }
+      }
+    },
+    {
+      "experiment": "exp5_all_features",
+      "description": "Combination of all features",
+      "feature_config": {
+        "multi_layer_last_token": true,
+        "multi_layer_mean_pooled": true,
+        "attention": true,
+        "logits": true
+      },
+      "feature_dim": 8071,
+      "train_stats": {
+        "n_samples": 2757,
+        "n_steps": 2757,
+        "label_distribution": {
+          "incorrect": 1259,
+          "correct": 1498
+        }
+      },
+      "probe_results": {
+        "train_auc": 1.0,
+        "train_accuracy": 1.0,
+        "val_auc": 0.719100529100529,
+        "val_accuracy": 0.6503623188405797
+      },
+      "eval_results": {
+        "GSM8K": {
+          "auc": 0.6547139016897081,
+          "accuracy": 0.612,
+          "n_samples": 500
+        },
+        "AQuA": {
+          "auc": 0.6122305956021552,
+          "accuracy": 0.6509695290858726,
+          "n_samples": 722
+        }
+      }
+    }
+  ]
+}

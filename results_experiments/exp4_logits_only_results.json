@@ -1,0 +1,37 @@
+{
+  "experiment": "exp4_logits_only",
+  "description": "Token logits/probs features only",
+  "feature_config": {
+    "multi_layer_last_token": false,
+    "multi_layer_mean_pooled": false,
+    "attention": false,
+    "logits": true
+  },
+  "feature_dim": 3,
+  "train_stats": {
+    "n_samples": 2757,
+    "n_steps": 2757,
+    "label_distribution": {
+      "incorrect": 1259,
+      "correct": 1498
+    }
+  },
+  "probe_results": {
+    "train_auc": 0.5504233305094721,
+    "train_accuracy": 0.5582766439909297,
+    "val_auc": 0.5343253968253967,
+    "val_accuracy": 0.5489130434782609
+  },
+  "eval_results": {
+    "GSM8K": {
+      "auc": 0.5639720942140296,
+      "accuracy": 0.528,
+      "n_samples": 500
+    },
+    "AQuA": {
+      "auc": 0.4663153487694772,
+      "accuracy": 0.4473684210526316,
+      "n_samples": 722
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "experiment": "exp3_attention_only",
+  "description": "Attention pattern features only",
+  "feature_config": {
+    "multi_layer_last_token": false,
+    "multi_layer_mean_pooled": false,
+    "attention": true,
+    "logits": false
+  },
+  "feature_dim": 4,
+  "train_stats": {
+    "n_samples": 2757,
+    "n_steps": 2757,
+    "label_distribution": {
+      "incorrect": 1259,
+      "correct": 1498
+    }
+  },
+  "probe_results": {
+    "train_auc": 0.5,
+    "train_accuracy": 0.5433106575963719,
+    "val_auc": 0.5,
+    "val_accuracy": 0.5434782608695652
+  },
+  "eval_results": {
+    "GSM8K": {
+      "auc": 0.5,
+      "accuracy": 0.496,
+      "n_samples": 500
+    },
+    "AQuA": {
+      "auc": 0.5,
+      "accuracy": 0.30193905817174516,
+      "n_samples": 722
+    }
+  }
+}

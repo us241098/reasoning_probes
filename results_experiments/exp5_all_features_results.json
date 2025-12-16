@@ -1,0 +1,37 @@
+{
+  "experiment": "exp5_all_features",
+  "description": "Combination of all features",
+  "feature_config": {
+    "multi_layer_last_token": true,
+    "multi_layer_mean_pooled": true,
+    "attention": true,
+    "logits": true
+  },
+  "feature_dim": 8071,
+  "train_stats": {
+    "n_samples": 2757,
+    "n_steps": 2757,
+    "label_distribution": {
+      "incorrect": 1259,
+      "correct": 1498
+    }
+  },
+  "probe_results": {
+    "train_auc": 1.0,
+    "train_accuracy": 1.0,
+    "val_auc": 0.719100529100529,
+    "val_accuracy": 0.6503623188405797
+  },
+  "eval_results": {
+    "GSM8K": {
+      "auc": 0.6547139016897081,
+      "accuracy": 0.612,
+      "n_samples": 500
+    },
+    "AQuA": {
+      "auc": 0.6122305956021552,
+      "accuracy": 0.6509695290858726,
+      "n_samples": 722
+    }
+  }
+}
